@@ -22,8 +22,8 @@ COPY . .
 # Expose the port
 EXPOSE 4747
 
-# Copy the cron script
-#COPY cron_script.sh /app
+# Copy the scripts
+COPY Queries /app
 
 # Set execution permissions for the cron script
 #RUN chmod +x /app/cron_script.sh
