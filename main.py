@@ -20,13 +20,13 @@ app = FastAPI()
 # SQLAlchemy configuration for destination database
 DATABASE_URL_DEST = (
     f'mssql+pyodbc://{settings.MS_SQL_USERNAME}:{settings.MS_SQL_PASSWORD}'
-    f'@{settings.MS_SQL_SERVER}/{settings.MS_SQL_DATABASE}?driver=ODBC+Driver+17+for+SQL+Server'
+    f'@{settings.MS_SQL_SERVER}/{settings.MS_SQL_DATABASE}'
 )
 
 # SQLAlchemy configuration for source database
 DATABASE_URL_SOURCE = (
     f'mssql+pyodbc://{settings.MS_SQL_USERNAME_SOURCE}:{settings.MS_SQL_PASSWORD_SOURCE}'
-    f'@{settings.MS_SQL_SERVER_SOURCE}/{settings.MS_SQL_DATABASE_SOURCE}?driver=ODBC+Driver+17+for+SQL+Server'
+    f'@{settings.MS_SQL_SERVER_SOURCE}/{settings.MS_SQL_DATABASE_SOURCE}'
 )
 
 engine_dest = create_engine(DATABASE_URL_DEST)
