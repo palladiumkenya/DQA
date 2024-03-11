@@ -2,7 +2,8 @@
 FROM python:3.9-slim
 
 # Install cron and git
-RUN apt-get update && apt-get install -y cron git unixodbc-dev 
+RUN apt-get update && apt-get install -y cron git 
+# unixodbc-dev 
 
 # Set the working directory
 WORKDIR /app
