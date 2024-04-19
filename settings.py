@@ -20,6 +20,9 @@ class Settings(BaseSettings):
     MS_SQL_DATABASE_SOURCE: str
 
     class Config:
+        def __init__(self):
+            pass
+
         env_file = './.env'
 
 
