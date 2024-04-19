@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, DateTime, text
+from sqlalchemy import create_engine, Column, Integer, String, DateTime, Date
 from sqlalchemy.ext.declarative import declarative_base
 from pydantic import BaseModel
 from datetime import datetime
@@ -11,6 +11,7 @@ Base = declarative_base()
 # Define dqadwapicentral table
 class DQADwapicentral(Base):
     __tablename__ = "dqadwapicentral"
+
     id = Column(Integer, primary_key=True, index=True)
     mfl_code = Column(Integer, index=True)
     name = Column(String)  # Facility Name
@@ -19,6 +20,19 @@ class DQADwapicentral(Base):
     log_date = Column(DateTime, default=datetime.utcnow)
     dwapi_version = Column(String)  # Dwapi Version
     docket = Column(String)
+
+
+# Define DWAPI duplicates table
+class DQADwapiCentralPatientDuplicate(Base):
+    __tablename__ = "DqaDwapiCentralPatientDuplicates"
+
+    id = Column(Integer, primary_key=True, index=True)
+    mfl_code = Column(Integer, index=True)
+    name = Column(String)  # Facility Name
+    number_of_dups = Column(Integer, nullable=True)
+    log_date = Column(DateTime)
+    reporting_date = Column(Date)
+    created_at = Column(DateTime, default=datetime.utcnow)
 
 
 # Create the table in the destination database
